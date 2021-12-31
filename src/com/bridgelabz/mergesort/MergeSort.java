@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class MergeSort<T extends Comparable<T>> {
 
-	// merges two subarrays of array[].
+	// merges two subArrays of array[].
     void merge(T[] array, int start, int middle, int end)
     {
         T[] leftArray  = (T[]) new Comparable[middle - start + 1];
