@@ -3,24 +3,36 @@ import java.util.Arrays;
 
 public class InsertionSort {
 
-	public static void main(String[] args) {
-		String[] words = {"rekha", "arun", "dog", "chethan"};
-		for(int i = 1; i <= words.length; i++) {
-			
-			String temp = words[i];
-			int j = i - 1;
-			while(j >= 0) {
-				if(temp.compareTo(words[j]) > 0) {
-					
-					break;
-				}
-				words[j+1] = words[j];
-				j--;
-			}
-			words[j+1] = temp;
-			System.out.println(Arrays.toString(words));
+	
+	private<T extends Comparable<T>> void insertionSort(T[] inputArray)
+	{
+		int i,j;
+		T key;
+		for (j = 1; j < inputArray.length; j++)
+		{
+			key = inputArray[j];
+		    i = j - 1;
+		    while (i >= 0)
+		    {
+		    	if (key.compareTo(inputArray[i]) > 0)
+		    	{
+		    		break;
+		    	}
+		    		inputArray[i + 1] = inputArray[i];
+		    		i--;
+		    }
+		    inputArray[i + 1] = key;
 		}
-		System.out.println(Arrays.toString(words));
+		System.out.println("Array after Sorting :: "+Arrays.toString(inputArray));
 	}
-
+	
+	public static void main(String[] args)
+	{
+		String[] inputArray = {"It's","Not","Faith","In","Technology"};
+		System.out.println("Given Array :: "+Arrays.toString(inputArray));
+	  
+		InsertionSort insertionSort = new InsertionSort();
+		insertionSort.insertionSort(inputArray);
+	}
+	
 }
